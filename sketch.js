@@ -82,7 +82,49 @@ function draw() {
     health = health-10;
   }
 }
-    
+if(frameCount%260===0){
+  spawnEnemy();
+  score = score+100;
+}
+}
+ if(score>1000){
+  gamestate = 2 
+  if(frameCount%200===0){
+    spawnEnemy();
+    score = score+100;
+  }
+  if(gamestate==2)
+  {
+    if(keyDown("up")||keyDown("w"))
+  {
+    player.y = player.y-10;
+  }
+  if(keyDown("down")||keyDown("s"))
+  {
+    player.y = player.y+10;
+  }
+  if(keyDown("left")||keyDown("a"))
+  {
+    player.x = player.x-10;
+  }
+  if(keyDown("right")||keyDown("s"))
+  {
+    player.x = player.x+10;
+  }
+  if(Enemygroup.isTouching(player)&&keyDown("space"))
+  {
+    Enemygroup.destroyEach();
+    score = score+1;
+  }
+  if(Enemygroup.isTouching(player))
+  {
+    Enemygroup.destroyEach();
+    health = health-10;
+  }
+   }
+  
+
+
 
 
 
